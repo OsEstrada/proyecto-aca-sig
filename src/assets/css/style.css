@@ -204,6 +204,55 @@ ul {
   color: #6c6c6c;
   margin-top: 24px; }
 
+.home{
+  background-color: white;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+  height: 100%;
+  width: 350px;
+}
+
+.map-content{
+  position: fixed;
+}
+
+.leaflet-left {
+  right: 0!important;
+  margin-bottom: 20px;
+}
+
+.leaflet-control {
+  float: right!important;
+  margin-right: 10px;
+}
+
+.slider-content{
+  padding-bottom: 0!important;
+  padding-top: 20px!important;
+}
+
+div.slider-image{
+  display: flex;
+  align-items: end;
+  background-color: #006f6f;
+  padding-bottom: 20px;
+  gap: 10px;
+}
+
+.slider-image img{
+  width: 35%;
+}
+
+.slider-image h1{
+  font-size: 2.5rem!important;
+  color: white;
+}
+
+div.leaflet-bottom.leaflet-left > div.leaflet-control-zoom.leaflet-bar.leaflet-control{
+  display: none;
+}
+
 /*===== All Preloader Style =====*/
 .preloader {
   /* Body Overlay */
@@ -2251,6 +2300,7 @@ ul {
   left: 0;
   width: 100%;
   padding: 10px 0;
+  background-color: white;
   z-index: 99; }
   .navbar-area .navbar {
     position: relative;
