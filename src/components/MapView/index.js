@@ -93,45 +93,47 @@ const MapView = ({ rutas, centerProp }) => {
 
     return (
         <div>
-            {!loading ?
-                <MapContainer center={centerProp || (center)} zoom={13} scrollWheelZoom={false}>
-                    {<MapUtil bounds={bounds} />}
-                    {<MapEvents />}
-                    <ZoomControl position="bottomright" />
-                    <LayersControl position="bottomright" collapsed={true}>
 
-                        <TileLayer
-                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                        
-                        {routes.map((route, index) => {
-                                return (
-                                    <LayersControl.Overlay 
-                                    name={route.name}
-                                    checked>
-                                        <FeatureLayer
-                                            url={route.url}
-                                            eventHandlers={{
-                                                loading: () => console.log('featurelayer loading'),
-                                                load: () => console.log("route in map", route)
-                                            }} />
-                                    </LayersControl.Overlay>
-                                )
-                            })}
-                    </LayersControl>
+            <MapContainer center={centerProp || (center)} zoom={13} scrollWheelZoom={false}>
+                {<MapUtil bounds={bounds} />}
+                {<MapEvents />}
+                <ZoomControl position="bottomright" />
+                <LayersControl position="bottomright" collapsed={true}>
 
-                    {/*<Marker position={[13.6527, -88.8684]} icon={Icon}>
+                    <TileLayer
+                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+
+                    {routes.map((route, index) => {
+                        return (
+                            <LayersControl.Overlay
+                                name={route.name}
+                                checked>
+                                {!loading ?
+                                    <FeatureLayer
+                                        url={route.url}
+                                        eventHandlers={{
+                                            loading: () => console.log('featurelayer loading'),
+                                            load: () => console.log("route in map", route)
+                                        }} />
+                                    :
+                                    <div>
+                                        <a>Cargando</a>
+                                    </div>
+                                }
+                            </LayersControl.Overlay>
+                        )
+                    })}
+                </LayersControl>
+
+                {/*<Marker position={[13.6527, -88.8684]} icon={Icon}>
                         <Popup>
                             A pretty CSS3 popup. <br/> Easily customizable.
                         </Popup>
                     </Marker>*/}
-                </MapContainer>
-                :
-                <div>
-                    <a>Cargando</a>
-                </div>
-            }
+            </MapContainer>
+
         </div>
     );
 }
