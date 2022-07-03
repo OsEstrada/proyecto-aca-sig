@@ -59,7 +59,7 @@ const MapView = ({ rutas, centerProp }) => {
 
     useEffect(() => {
         isLoading(true)
-        var routes = rutas.length > 0 ? rutas : Routes.default.map(e => { return e.route });
+        var routes = rutas.length > 0 ? rutas : Routes.default;
         const colorsArray = [];
 
         RoutesService.getRoutes(routes).then((response) => {
@@ -69,7 +69,6 @@ const MapView = ({ rutas, centerProp }) => {
                     color({ luminosity: 'dark' })
                 );
             }
-
             setColors(colorsArray);
             setRoutes(response);
         }).catch((e) => {
@@ -109,10 +108,10 @@ const MapView = ({ rutas, centerProp }) => {
                         {routes.map((route, index) => {
                                 return (
                                     <LayersControl.Overlay 
-                                    name={route}
+                                    name={route.name}
                                     checked>
                                         <FeatureLayer
-                                            url={route}
+                                            url={route.url}
                                             eventHandlers={{
                                                 loading: () => console.log('featurelayer loading'),
                                                 load: () => console.log("route in map", route)

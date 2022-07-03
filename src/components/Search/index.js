@@ -97,7 +97,7 @@ export const Search = ({ handleSearch, filteredRoute, handleClickItem }) => {
                 <ul className="search-suggestions">
                     {listItems.map((item, key) => (
                         <li
-                            onClick={(e) => onClickRoute(e, item.route)}
+                            onClick={(e) => onClickRoute(e, item)}
                             className="search-item"
                             key={key}
                         >
