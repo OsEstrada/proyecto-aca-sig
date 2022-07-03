@@ -98,29 +98,28 @@ const MapView = ({ rutas, centerProp }) => {
                 <MapContainer center={centerProp || (center)} zoom={13} scrollWheelZoom={false}>
                     {<MapUtil bounds={bounds} />}
                     {<MapEvents />}
-                    <ZoomControl position="bottomleft" />
-                    <LayersControl position="bottomleft" collapsed={true}>
+                    <ZoomControl position="bottomright" />
+                    <LayersControl position="bottomright" collapsed={true}>
 
                         <TileLayer
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
-                        <LayersControl.Overlay checked>
-
-                            {routes.map((route, index) => {
+                        
+                        {routes.map((route, index) => {
                                 return (
-                                    <FeatureLayer
-                                        url={route}
-                                        eventHandlers={{
-                                            loading: () => console.log('featurelayer loading'),
-                                            load: () => console.log("route in map", route)
-                                        }} />
-
+                                    <LayersControl.Overlay 
+                                    name={route}
+                                    checked>
+                                        <FeatureLayer
+                                            url={route}
+                                            eventHandlers={{
+                                                loading: () => console.log('featurelayer loading'),
+                                                load: () => console.log("route in map", route)
+                                            }} />
+                                    </LayersControl.Overlay>
                                 )
                             })}
-                        </LayersControl.Overlay>
-
-
                     </LayersControl>
 
                     {/*<Marker position={[13.6527, -88.8684]} icon={Icon}>

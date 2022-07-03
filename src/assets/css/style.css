@@ -217,16 +217,6 @@ ul {
   position: fixed;
 }
 
-.leaflet-left {
-  right: 0!important;
-  margin-bottom: 20px;
-}
-
-.leaflet-control {
-  float: right!important;
-  margin-right: 10px;
-}
-
 .slider-content{
   padding-bottom: 0!important;
   padding-top: 20px!important;
@@ -247,10 +237,6 @@ div.slider-image{
 .slider-image h1{
   font-size: 2.5rem!important;
   color: white;
-}
-
-div.leaflet-bottom.leaflet-left > div.leaflet-control-zoom.leaflet-bar.leaflet-control{
-  display: none;
 }
 
 /*===== All Preloader Style =====*/
