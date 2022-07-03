@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import RoutesService from '../../services/busesRoutesData';
+import RoutesUrls from '../../services/busesRoutesUrls';
 import color from "randomcolor";
 
 /**
@@ -34,7 +34,7 @@ const RoutesList = ({ routesBuses, routesMicrobuses, rutas }) => {
 
     const routeInfo = (route) => {
         isLoading(true);
-        RoutesService.getRoutes(route).then((response) => {
+        RoutesUrls.getRoutes(route).then((response) => {
             setSelectedRoute(response);
         }).catch((e) => {
             console.log(e, "No se han podido cargar las rutas");
