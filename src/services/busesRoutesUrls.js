@@ -13,13 +13,14 @@ service.getRoutes = async (names) => {
                 console.log("ROUTEDATA", routeData.data);
                 if(!routeData.data.features){
                         alert("Esta ruta no existe en la base de datos");
-                        throw 404;
+                        throw new Error("error");
                 }
 
                 route = {
                     "name": names[i].name,
                     "url": `https://services9.arcgis.com/4ZwMO9wShTnUDuWy/ArcGIS/rest/services/${names[i].route}`,
-                    "data": routeData.data.features
+                    "data": routeData.data.features,
+                    "infoRoute": routeData.data
                 };
 
                 response.push(route);

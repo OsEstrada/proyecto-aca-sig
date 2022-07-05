@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import RoutesUrls from '../../services/busesRoutesUrls';
-import color from "randomcolor";
 
 /**
  *
@@ -10,32 +9,23 @@ import color from "randomcolor";
  * @constructor
  */
 
-const RoutesList = ({ routesBuses, routesMicrobuses, rutas }) => {
+const RoutesList = ({ rutas }) => {
     const [selectedRoute, setSelectedRoute] = useState(null);
     const [loading, isLoading] = useState(true);
-
 
     useEffect(() => {
         //aqui va route.route
         routeInfo(rutas);
-
-        console.log('ruta seleccionada', selectedRoute);
+        
+        console.log('ruta seleccionada',selectedRoute );
     }, [rutas])
-
-
-
-    const listItemsBuses = routesBuses.map((route) =>
-        <li className="list">{route.name}</li>
-    );
-
-    const listItemsMicrobuses = routesMicrobuses.map((route) =>
-        <li className="list">{route.name}</li>
-    );
 
     const routeInfo = (route) => {
         isLoading(true);
         RoutesUrls.getRoutes(route).then((response) => {
-            setSelectedRoute(response);
+            console.log("PRUEBA",response[0].data)
+            //
+            setSelectedRoute(response[0].data[0]);
         }).catch((e) => {
             console.log(e, "No se han podido cargar las rutas");
         }).finally(() => {
@@ -46,30 +36,29 @@ const RoutesList = ({ routesBuses, routesMicrobuses, rutas }) => {
     return (
         <div className="listab">
             <div class="card">
-
-
-                <h3 className="title3">{selectedRoute ? null : "SELECIONE UNA RUTA EN EL BUSCADOR"}</h3>
+                <h3 className="title3">{selectedRoute ? null : "INFORMACIÓN DE RUTA SELECCIONADA"}</h3>
                 <div class="features">
                     <div className="pareja2">
+                        <h2 className="title  title2">Nombre: </h2><h2 className="title">Ruta {selectedRoute ? selectedRoute.attributes.NAME : null}</h2>
                     </div>
                     <div className="pareja2">
+                        <h2 className="title title2">Origen:</h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.ORIGEN : null}</h2>
                     </div>
                     <div className="pareja2">
+                        <h2 className="title title2">Destino: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.DESTINO : null}</h2>
                     </div>
                     <div className="pareja2">
+                        <h2 className="title title2">Kilometros: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.KILOMETROS : null}</h2>
                     </div>
                     <div className="pareja2">
-
+                        <h2 className="title title2">Horario de lunes a viernes: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.H_INIC_LV : null}</h2>
+                        <h2 className="title">{selectedRoute ? selectedRoute.attributes.H_FIN_LV : null}</h2>
                     </div>
                     <div className="pareja2">
+                        <h2 className="title title2">Horario de fin de semana: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.H_INIC_SD : null}</h2>
+                        <h2 className="title">{selectedRoute ? selectedRoute.attributes.H_FIN_SD : null}</h2>
                     </div>
-
-
-
                 </div>
-
-                <a href="#secondPage" class="btn">Ir al mapa</a>
-
             </div>
 
 

@@ -1,5 +1,3 @@
-import './MapView';
-
 import MapView from './MapView';
 import '../index.css';
 import '../assets/css/bootstrap.min.css';
@@ -9,7 +7,6 @@ import bus from '../assets/img/bus4.png';
 import RoutesLists from './RoutesList';
 import { Search } from './Search';
 import { useState } from 'react';
-import data from '../data/RoutesNames';
 
 const SEL = 'custom-section';
 const SECTION_SEL = `.${SEL}`;
@@ -44,14 +41,18 @@ const FullPage = () => {
                                         />
                                 </div>       
                             </div>
+                            <div>
+                                {routeSelected.length > 0 ? 
+                                  <div> <RoutesLists rutas={routeSelected} /></div>
+                                  : <div></div>
+                                 }
+                                
+                            </div>
                         </div>
                         <div className="map-content">
                             {' '}
                             <MapView rutas={routeSelected} />
                         </div>
-                        {/* <div style="display: none;">
-                            <RoutesLists routesBuses={data.buses} routesMicrobuses={data.microbuses} rutas={routeSelected} />
-                        </div> */}
             </div>
         </div>
     );
