@@ -41,12 +41,11 @@ const FullPage = () => {
                                         />
                                 </div>       
                             </div>
-                            <div>
+                            <div className="route-info">
                                 {routeSelected.length > 0 ? 
-                                  <div> <RoutesLists rutas={routeSelected} /></div>
+                                  <RoutesLists rutas={routeSelected} />
                                   : <div></div>
                                  }
-                                
                             </div>
                         </div>
                         <div className="map-content">

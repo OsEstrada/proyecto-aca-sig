@@ -36,25 +36,24 @@ const RoutesList = ({ rutas }) => {
     return (
         <div className="listab">
             <div class="card">
-                <h3 className="title3">{selectedRoute ? null : "INFORMACIÓN DE RUTA SELECCIONADA"}</h3>
                 <div class="features">
-                    <div className="pareja2">
+                    <div>
                         <h2 className="title  title2">Nombre: </h2><h2 className="title">Ruta {selectedRoute ? selectedRoute.attributes.NAME : null}</h2>
                     </div>
-                    <div className="pareja2">
+                    <div>
                         <h2 className="title title2">Origen:</h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.ORIGEN : null}</h2>
                     </div>
-                    <div className="pareja2">
+                    <div>
                         <h2 className="title title2">Destino: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.DESTINO : null}</h2>
                     </div>
-                    <div className="pareja2">
+                    <div>
                         <h2 className="title title2">Kilometros: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.KILOMETROS : null}</h2>
                     </div>
-                    <div className="pareja2">
+                    <div>
                         <h2 className="title title2">Horario de lunes a viernes: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.H_INIC_LV : null}</h2>
                         <h2 className="title">{selectedRoute ? selectedRoute.attributes.H_FIN_LV : null}</h2>
                     </div>
-                    <div className="pareja2">
+                    <div>
                         <h2 className="title title2">Horario de fin de semana: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.H_INIC_SD : null}</h2>
                         <h2 className="title">{selectedRoute ? selectedRoute.attributes.H_FIN_SD : null}</h2>
                     </div>

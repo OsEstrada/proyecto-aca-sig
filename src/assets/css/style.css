@@ -88,7 +88,7 @@ h1 {
   font-size: 3rem; }
 
 h2 {
-  font-size: 34px; }
+  font-size: 0.9em; }
 
 h3 {
   font-size: 28px; }
@@ -174,9 +174,7 @@ ul {
   display: flex;
   max-height: 100%;
   justify-content: center;
-  max-width: 100%;
-
-
+  width: 80%;
  
 }
 .listaA{
@@ -326,24 +324,28 @@ body {
   font-family: "Varela Round", sans-serif;
 }
 
+.route-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-height: 700px;
+}
+
 .card {
- background-color:   #e5d5c7;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+ background-color: #e5d5c7a8;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   border-radius: 5px;
-  margin: 50px 20px 20px 20px;
-  width: 33.3333% ; 
+  margin: 0;
   padding: 20px;
   text-align: center;
   color: white;
+  width: 100%;
   float: left;
 } @media (max-width: 767px) {
   h2 {
-    font-size: 24px; }
-  .card {
-    margin: 10px 20px;
-    width: calc(100% - 40px); 
-    font-size: 26px;
-    } }
+    font-size: 0.7em; }
+  }
 
 .btn {
   display: block;
@@ -366,13 +368,9 @@ body {
   justify-content: center;
 }
 
-.pareja2{
-  display: block;
-
-}
-
 .title2{
   color: #006f6f;
+  margin-top: 5px;
 }
 
 .title3{
