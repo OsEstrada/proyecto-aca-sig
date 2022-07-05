@@ -5,10 +5,12 @@ import {
     ZoomControl,
     LayersControl,
     useMap,
-    useMapEvent
+    useMapEvent,
+    Marker,
+    Popup
 } from 'react-leaflet'
 //import color from 'randomcolor';
-//import Icon from '../IconMarker';
+import Icon from '../IconMarker';
 import 'leaflet/dist/leaflet.css'
 import Routes from '../../data/RoutesNames';
 import RoutesService from '../../services/busesRoutesUrls';
@@ -120,13 +122,15 @@ const MapView = ({ rutas, centerProp }) => {
                             </LayersControl.Overlay>
                         )
                     })}
-                </LayersControl>
 
-                {/*<Marker position={[13.6527, -88.8684]} icon={Icon}>
-                        <Popup>
-                            A pretty CSS3 popup. <br/> Easily customizable.
-                        </Popup>
-                    </Marker>*/}
+                    <LayersControl.Overlay position={[13.6527, -88.8684]} name="Marker with popup">
+                        <Marker position={center} icon={Icon}>
+                            <Popup>
+                                A pretty CSS3 popup. <br /> Easily customizable.
+                            </Popup>
+                        </Marker>
+                    </LayersControl.Overlay>
+                </LayersControl>
             </MapContainer>
 
         </div>
