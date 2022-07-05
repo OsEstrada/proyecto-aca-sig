@@ -5,6 +5,7 @@ import {
     ZoomControl,
     LayersControl,
     useMap,
+    LayerGroup,
     useMapEvent,
     Marker,
     Popup
@@ -14,7 +15,7 @@ import Icon from '../IconMarker';
 import 'leaflet/dist/leaflet.css'
 import Routes from '../../data/RoutesNames';
 import RoutesService from '../../services/busesRoutesUrls';
-import {randomColors} from '../../data/ColorsNames'
+import { randomColors } from '../../data/ColorsNames'
 import { FeatureLayer } from "react-esri-leaflet";
 
 /**
@@ -104,14 +105,14 @@ const MapView = ({ rutas, centerProp }) => {
                     {routes.map((route, index) => {
                         return (
                             <LayersControl.Overlay
+
                                 name={route.name}
                                 checked>
                                 {!loading ?
                                     <FeatureLayer
-                                        style = {colors[index]}
+                                        style={colors[index]}
                                         url={route.url}
                                         eventHandlers={{
-                                            loading: () => console.log('featurelayer loading'),
                                             load: () => console.log("route in map", route)
                                         }} />
                                     :
@@ -123,13 +124,31 @@ const MapView = ({ rutas, centerProp }) => {
                         )
                     })}
 
-                    <LayersControl.Overlay position={[13.6527, -88.8684]} name="Marker with popup">
-                        <Marker position={center} icon={Icon}>
-                            <Popup>
-                                A pretty CSS3 popup. <br /> Easily customizable.
-                            </Popup>
-                        </Marker>
-                    </LayersControl.Overlay>
+                    {routes.filter(route => route.stops.length > 0).map(route => {
+                        return (
+                            <LayersControl.Overlay name={`Paradas ${route.name}`}>
+                                <LayerGroup>
+                                    {!loading ?
+                                        <div>
+                                            {route.stops.map(e => {
+                                                return (
+                                                    <Marker position={[e.geometry.coordinates[1], e.geometry.coordinates[0]]} icon={Icon}>
+                                                        <Popup>
+                                                            {e.properties.NOMBRE}
+                                                        </Popup>
+                                                    </Marker>
+                                                )
+                                            })}
+                                        </div>
+                                        :
+                                        <div>
+                                            <a>Cargando</a>
+                                        </div>
+                                    }
+                                </LayerGroup>
+                            </LayersControl.Overlay>
+                        )
+                    })}
                 </LayersControl>
             </MapContainer>
 
