@@ -7,11 +7,12 @@ import {
     useMap,
     useMapEvent
 } from 'react-leaflet'
-import color from 'randomcolor';
-import Icon from '../IconMarker';
+//import color from 'randomcolor';
+//import Icon from '../IconMarker';
 import 'leaflet/dist/leaflet.css'
 import Routes from '../../data/RoutesNames';
 import RoutesService from '../../services/busesRoutesUrls';
+import {randomColors} from '../../data/ColorsNames'
 import { FeatureLayer } from "react-esri-leaflet";
 
 /**
@@ -26,8 +27,8 @@ const MapView = ({ rutas, centerProp }) => {
     const [routes, setRoutes] = useState([]);
     const [center, setCenter] = useState([13.7153719325982, -89.19499397277833]);
     const [loading, isLoading] = useState(true);
-    const [selectedRoute, setSelectedRoute] = useState(null);
     const [colors, setColors] = useState([]);
+    const [selectedRoute, setSelectedRoute] = useState(null);
     const [bounds, setBounds] = useState(null);
 
     const referenciaRuta = useRef();
@@ -60,17 +61,10 @@ const MapView = ({ rutas, centerProp }) => {
     useEffect(() => {
         isLoading(true)
         var routes = rutas.length > 0 ? rutas : Routes.default;
-        const colorsArray = [];
 
         RoutesService.getRoutes(routes).then((response) => {
-
-            for (var i = 0; i < response.length; i++) {
-                colorsArray.push(
-                    color({ luminosity: 'dark' })
-                );
-            }
-            setColors(colorsArray);
             setRoutes(response);
+            setColors(randomColors());
         }).catch((e) => {
             console.log(e, "No se han podido cargar las rutas");
         }).finally(() => {
@@ -112,6 +106,7 @@ const MapView = ({ rutas, centerProp }) => {
                                 checked>
                                 {!loading ?
                                     <FeatureLayer
+                                        style = {colors[index]}
                                         url={route.url}
                                         eventHandlers={{
                                             loading: () => console.log('featurelayer loading'),
