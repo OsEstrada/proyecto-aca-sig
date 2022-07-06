@@ -19,6 +19,7 @@ const RoutesList = ({ rutas }) => {
         routeInfo(rutas);       
     }, [rutas])
 
+    // Se manda a llamar la información que se captura de la ruta
     const routeInfo = (route) => {
         isLoading(true);
         RoutesUrls.getRoutes(route).then((response) => {
@@ -31,6 +32,7 @@ const RoutesList = ({ rutas }) => {
         })
     }
 
+    // Función que coloca el nombre del municipio según el codigo de ORIGEN y DESTINO
     const setMunicipality = (route, attr) => {
         let nameM = ""
         for(let i = 0; i < route.length; i++){
