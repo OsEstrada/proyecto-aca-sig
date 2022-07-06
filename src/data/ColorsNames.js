@@ -9,7 +9,6 @@ const arr = [
     {"color": "#2E8B57"},
     {"color": "#8A2BE2"},
     {"color": "#4682B4"},
-    {"color": "#7CFC00"},
     {"color": "#7B68EE"},
     {"color": "#00BFFF"}
 ];

@@ -10,7 +10,6 @@ import {
     Marker,
     Popup
 } from 'react-leaflet'
-//import color from 'randomcolor';
 import Icon from '../IconMarker';
 import 'leaflet/dist/leaflet.css'
 import Routes from '../../data/RoutesNames';

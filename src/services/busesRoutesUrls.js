@@ -26,7 +26,7 @@ service.getRoutes = async (names) => {
                     "name": names[i].name,
                     "url": `https://services9.arcgis.com/4ZwMO9wShTnUDuWy/ArcGIS/rest/services/${names[i].route}`,
                     "data": routeData.data.features,
-                    "infoRoute": routeData.data,
+                    "municipality": routeData.data.fields[8].domain.codedValues,
                     "stops": stops,
                 };
 
