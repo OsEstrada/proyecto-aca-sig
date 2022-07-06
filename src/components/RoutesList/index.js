@@ -56,7 +56,7 @@ const RoutesList = ({ rutas }) => {
                         <h2 className="title title2">Destino: </h2><h2 className="title">{selectedRoute ? setMunicipality(selectedMunicipality, selectedRoute.attributes.DESTINO) : null}</h2>
                     </div>
                     <div>
-                        <h2 className="title title2">Kilometros: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.KILOMETROS.toFixed(2) : null}</h2>
+                        <h2 className="title title2">Kilometros: </h2><h2 className="title">{selectedRoute ? (selectedRoute.attributes.KILOMETROS ? selectedRoute.attributes.KILOMETROS.toFixed(2): null) : null}</h2>
                     </div>
                     <div>
                         <h2 className="title title2">Horario de lunes a viernes: </h2><h2 className="title">{selectedRoute ? selectedRoute.attributes.H_INIC_LV : null}</h2>
