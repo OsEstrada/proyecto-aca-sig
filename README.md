@@ -20,7 +20,7 @@
 ### **Demo [Bus App](http://proyect-aca-sig.herokuapp.com/)**
   
 Proyecto de SIG y ACA.  
-Link Heroku (Rama master): https://proyect-aca-sig.herokuapp.com/
+Link Heroku (Rama master): https://osestrada.github.io/proyecto-aca-sig/
 
 ## Pre-requisitos
 - [npm](https://docs.npmjs.com/cli/v7/commands/npm-install)
