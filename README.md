@@ -30,12 +30,12 @@ Link Heroku (Rama master): https://proyect-aca-sig.herokuapp.com/
 
 #### Via Git
 ```bash
-git clone https://github.com/ragranadosu/proyecto-sig-aca.git
+git clone https://github.com/OsEstrada/proyecto-aca-sig.git
 ```
 
 #### Via GitHub CLI
 ```bash
-gh repo clone ragranadosu/proyecto-sig-aca
+gh repo clone OsEstrada/proyecto-aca-sig
 ```
 
 ## Inciar ejecución de proyecto
