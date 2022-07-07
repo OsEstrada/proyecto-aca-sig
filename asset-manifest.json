@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/proyecto-aca-sig/static/css/main.8d89ce0e.css",
+    "main.js": "/proyecto-aca-sig/static/js/main.55720275.js",
+    "static/js/787.bf2db211.chunk.js": "/proyecto-aca-sig/static/js/787.bf2db211.chunk.js",
+    "static/media/bus4.png": "/proyecto-aca-sig/static/media/bus4.547f50f286cefa5c8e73.png",
+    "static/media/venue_location_icon.svg": "/proyecto-aca-sig/static/media/venue_location_icon.4f0fdd5bf41f1806927120c5ccba6e69.svg",
+    "static/media/search-icon.svg": "/proyecto-aca-sig/static/media/search-icon.637db43215a9acee984c58651ea550f7.svg",
+    "index.html": "/proyecto-aca-sig/index.html",
+    "static/media/down-chevron.svg": "/proyecto-aca-sig/static/media/down-chevron.5c07ce46dcf637f25a248a9220c00873.svg",
+    "main.8d89ce0e.css.map": "/proyecto-aca-sig/static/css/main.8d89ce0e.css.map",
+    "main.55720275.js.map": "/proyecto-aca-sig/static/js/main.55720275.js.map",
+    "787.bf2db211.chunk.js.map": "/proyecto-aca-sig/static/js/787.bf2db211.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d89ce0e.css",
+    "static/js/main.55720275.js"
+  ]
+}
